@@ -3161,8 +3161,12 @@ def softmax(x, axis=-1):
     # Returns
         A tensor.
     """
-    return tf.nn.softmax(x, axis=axis)
-
+    try:
+        a = tf.nn.softmax(x, axis = axis)
+    except:
+        a = tf.nn.softmax(x)
+    # return tf.nn.softmax(x, axis=axis)
+    return a
 
 def softplus(x):
     """Softplus of a tensor.
